@@ -1,0 +1,498 @@
+* {
+	box-sizing: border-box;
+}
+/* CSS Variables so I can easily make colour changes. Learn more: https://www.w3schools.com/css/css3_variables.asp */
+:root {
+	--main-col: #0a192e;
+	--main-light: #e5e3f9;
+	--alt-col: #db0a5b;
+	--alt-light: #F54D8D;
+	--horiz-margin: 0.5rem;
+}
+
+body {
+	font-family: 'Heebo', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+	/* Google font + system font stack from https://systemfontstack.com */
+	line-height: 1.5;
+	color: var(--main-col);
+}
+
+h1, h2, h3, h4, p, li {
+	margin-top: 0;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+h1, h2, h3, h4 {
+	line-height: 1.2;
+	margin-bottom: 0.65em;
+}
+
+h1 {
+	font-size: 1.75rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+h4 {
+	font-size: 1rem;
+}
+
+a, a:visited {
+	color: var(--alt-col);
+	text-decoration: none;
+	transition: color .4s ease, border .4s ease, background .4s ease; /* Smooth out those hover styles */
+	border-bottom: 2px solid var(--main-col);
+}
+
+a:hover {
+	color: var(--main-col);
+	border-bottom: 2px solid var(--main-col);
+}
+
+img {
+	max-width: 100%;
+}
+
+/* A wild utility class appears! */
+.hidden {
+	display: none;
+}
+
+header {
+	margin: 1rem var(--horiz-margin) 2rem var(--horiz-margin);
+}
+
+.logo {
+	text-align: center;
+	font-size: 1rem;
+}
+
+.logo a, .logo a:visited, .logo a:hover {
+	border: none;
+}
+
+.logo svg {
+	height: 1.5rem;
+	width: auto;
+	vertical-align: bottom;
+}
+
+.logo path {
+	stroke: var(--main-col);
+	fill: var(--main-col);
+	animation: cloud-animation 5s linear 1s infinite;
+}
+
+.logo-animate {
+	display: inline;
+	stroke: #fff;
+	animation: bolt-animation 5s linear 0s infinite;
+}
+
+/* Just amusing myself */
+@keyframes cloud-animation {
+	0% { stroke: var(--main-col); }
+	48% { stroke: var(--main-col); }
+	50% { stroke: #165ab7; }
+	60% { stroke: #165ab7; }
+	70% { stroke: #165ab7; }
+	75% { stroke: var(--main-col); }
+}
+
+@keyframes bolt-animation {
+	0% { stroke: #fff; stroke-width: 16; }
+	48% { stroke: #fff; stroke-width: 16; }
+	50% { stroke: #fcd468; stroke-width: 18; }
+	60% { stroke: #d2cd0f; stroke-width: 20; }
+	70% { stroke: #fcd468; stroke-width: 18; }
+	75% { stroke: #fff; stroke-width: 16; }
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-around;
+	margin: 2rem 0 0 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+nav li {
+	
+}
+
+nav a, nav a:visited, nav a:hover {
+	border-bottom: none;
+}
+
+.hero {
+	margin: 0 var(--horiz-margin);
+	text-align: center;
+}
+
+.btn, .btn:visited {
+	display: inline-block;
+	width: auto;
+	margin: 1rem auto;
+	padding: 1rem 3rem;
+	background: var(--alt-col);
+	border: 2px solid var(--main-col);
+	border-radius: .5rem;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.btn:hover {
+	background: var(--main-col);
+	color: #fff;
+}
+
+#about {
+	margin: 2rem var(--horiz-margin) 0 var(--horiz-margin);
+	padding: 0 0 2rem 0;
+}
+
+#about .image {
+	margin: 0 auto 1rem auto;
+	max-height: 12rem;
+	overflow: hidden;
+}
+
+#about img {
+	position: relative;
+	top: -6rem;
+	width: 100%;
+}
+
+.divider {
+	overflow: hidden;
+	background: var(--main-col);
+}
+
+.divider svg {
+	display: block;
+}
+
+#work {
+	padding: 2rem var(--horiz-margin);
+	background: var(--main-col);
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	background: #fff;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.card:last-of-type {
+	margin-bottom: 0;
+}
+
+.card h3, .card p:not(.card-btns) {
+	padding: var(--horiz-margin);
+}
+
+.card .image {
+	position: relative; /* Without this, z-index would not work. */
+	z-index: 10; /* Without this, the border radius would disappear on hover */
+	height: 14rem;
+	overflow: hidden;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.card img {
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	filter: saturate(50%);
+	transition: transform .4s ease, filter .4s ease;
+}
+
+.card:hover img {
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	transform: scale(1.3);
+	transform: scale(1.3);
+	filter: saturate(100%);
+}
+
+.card-btns {
+	display: flex;
+	justify-content: space-between;
+}
+
+#work .btn {
+	margin: 0 var(--horiz-margin) var(--horiz-margin) var(--horiz-margin);
+	padding: 0.5rem 1rem;
+	background: none;
+	border-color: var(--alt-col);
+	color: var(--alt-col);
+	font-size: .75rem;
+}
+
+#work .btn:hover {
+	border-color: var(--main-col);
+}
+
+#contact {
+	margin: 2rem var(--horiz-margin);
+}
+
+.contact-methods > div {
+	padding-bottom: 1rem;
+}
+
+.contact-methods a, .contact-methods a:visited, .contact-methods a:hover {
+	border: none;
+}
+
+.contact-methods svg {
+	height: 2rem;
+	top: .25rem;
+	position: relative;
+	vertical-align: text-bottom;
+}
+
+#contact .image {
+	margin: 0 auto;
+	max-height: 12rem;
+	overflow: hidden;
+}
+
+#contact img {
+	position: relative;
+	top: -6rem;
+	width: 100%;
+}
+
+.contact-image p {
+	text-align: center;
+}
+
+footer {
+	padding: 6rem 0 4rem 0;
+	background: var(--main-col);
+	color: #fff;
+	text-align: center;
+}
+
+footer section {
+	margin: 0 var(--horiz-margin);
+}
+
+footer a, footer a:visited {
+	color: var(--alt-light);
+}
+
+footer a:hover {
+	color: #fff;
+}
+
+.title {
+	padding: 4rem 0;
+	background: var(--main-col);
+	color: #fff;
+}
+
+.title h1 {
+	margin: 0 var(--horiz-margin);
+	text-align: center;
+}
+
+.project {
+	margin: 2rem var(--horiz-margin);
+}
+
+@media (min-width: 768px) {
+	
+	h1 {
+		font-size: 3.5rem;
+		line-height: 1;
+	}
+	
+	header, .hero, #about, .container, #contact, .project {
+		max-width: 970px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	header {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	nav {
+		flex-basis: 30%;
+	}
+	
+	header ul {
+		justify-content: space-between;
+		margin: 0;
+	}
+	
+	.hero {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 4rem 0;
+		text-align: left;
+	}
+	
+	.hero h1 {
+		flex-basis: 100%;
+	}
+	
+	.hero p {
+		flex-basis: 50%;
+	}
+	
+	.hero .hero-btn {
+		flex-basis: 40%;
+		text-align: right;
+	}
+	
+	#about {
+		display: flex;
+		align-items: center;
+	}
+	
+	#about .image {
+		margin: 0 auto 1rem auto;
+		max-height: 100%;
+	}
+	
+	#about img {
+		position: relative;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	#about p {
+		margin-left: 4rem;
+	}
+	
+	#work .container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 2rem;
+	}
+	
+	.card:last-of-type {
+		margin-bottom: 2rem;
+	}
+	
+	.contact-methods {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	
+	.contact-methods > div {
+		margin-right: 2rem;
+	}
+	
+	#contact .image {
+		margin: 0 auto;
+		max-height: 100%;
+	}
+	
+	#contact img {
+		position: relative;
+		top: 0;
+		max-height: 20rem;
+		width: auto;
+	}
+	
+	.contact-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		margin: 2rem auto 0 auto;
+	}
+
+	.contact-image p {
+		margin-left: 4rem;
+		text-align: left;
+	}
+	
+	.contact-image em {
+		font-size: 0.75rem;
+	}
+	
+	footer {
+		text-align: left;
+	}
+	
+	footer section {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	
+	footer nav {
+		flex-basis: 30%;
+	}
+	
+	footer ul {
+		justify-content: space-between;
+		margin: 0;
+	}
+	
+	footer li {
+		
+	}
+	
+	.project {
+		padding: 4rem 0;
+	}
+	
+	.project img {
+		border-radius: 0.5rem;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	}
+	
+	.project-intro {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+	
+	.project-intro .image {
+		flex-basis: 45%;
+	}
+	
+	.project-intro .text {
+		flex-basis: 55%;
+	}
+	
+	.project section:not(.project-intro) h2 {
+		width: 75%;
+		margin: 2rem auto 0.65rem auto;
+	}
+	
+	.project section:not(.project-intro) p, .project section:not(.project-intro) ul {
+		width: 75%;
+		margin: 0 auto 0.65rem auto;
+	}
+	
+	.project section:not(.project-intro) .image {
+		padding-top: 2rem;
+	}
+	
+}
