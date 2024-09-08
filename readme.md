@@ -1,4 +1,4 @@
-# Quick Example Portfolio Project for Literacy Alberni's Web Design and Development Program
+# Quick Example Portfolio Project for Literacy Alberni's Web Design and Development Employment Program
 
 [View it live on GitHub Pages!](https://lancecore.github.io/wddep-example-portfolio/)
 
